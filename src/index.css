@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  --color-ink: #0F2419;
+  --color-ink-soft: #1f2530;
+  --color-sand: #f5f8fb;
+  --color-sand-dim: #eaf0f6;
+  --color-parchment: #dde7f0;
+
+  /* Bleu principal (issu du pin/toit de l'icône) */
+  --color-terracotta: #2563eb;
+  --color-terracotta-dim: #1d4ed8;
+  --color-terracotta-glow: rgba(37, 99, 235, 0.14);
+
+  /* Bleu marine secondaire (clé de voûte, textes forts) */
+  --color-clay: #1e3a8a;
+
+  /* Ambre (statuts "en attente / paiement") */
+  --color-gold: #f59e0b;
+
+  /* Vert (issu de la clé/vague de l'icône) */
+  --color-teal: #16a34a;
+  --color-teal-glow: rgba(22, 163, 74, 0.14);
+
+  /* Rouge (litiges/erreurs) */
+  --color-crimson: #dc2626;
+  --color-crimson-glow: rgba(220, 38, 38, 0.14);
+}
+
+body {
+  margin: 0;
+  background: var(--color-sand);
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-terracotta);
+  color: var(--color-sand);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #c3d3e0;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a9c0d3;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-rise {
+  animation: rise 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

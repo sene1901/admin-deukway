@@ -17,7 +17,7 @@ import {
   revenusParMois,
   repartitionLogements,
   activiteRecente,
-} from "../data/mockData";
+} from "../data/Mockdata.js";
 
 const COULEURS_CAMEMBERT = ["#2563eb", "#f59e0b", "#16a34a", "#1e3a8a"];
 

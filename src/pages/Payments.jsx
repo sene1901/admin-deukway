@@ -1,5 +1,5 @@
 import Topbar from "../components/Topbar";
-import { paiements } from "../data/mockData";
+import { paiements } from "../data/Mockdata.js";
 
 function formatFCFA(n) {
   return new Intl.NumberFormat("fr-FR").format(n) + " FCFA";

@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { BadgeCheck, CheckCircle2, PauseCircle, Trash2 } from "lucide-react";
 import Topbar from "../components/Topbar";
 import Badge from "../components/Badge";
-import { annonces } from "../data/mockData";
+import { annonces } from "../data/Mockdata.js";
 
 const types = ["Toutes", "Chambre", "Studio", "Colocation", "Appartement"];
 

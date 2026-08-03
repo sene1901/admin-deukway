@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { BadgeCheck, Ban, CheckCircle2, MoreVertical } from "lucide-react";
 import Topbar from "../components/Topbar";
 import Badge from "../components/Badge";
-import { utilisateurs } from "../data/mockData";
+import { utilisateurs } from "../data/Mockdata.js";
 
 const roles = ["Tous", "Locataire", "Propriétaire", "Agence"];
 

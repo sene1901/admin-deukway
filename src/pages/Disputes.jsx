@@ -1,7 +1,7 @@
 import { CheckCircle2, MessageSquareWarning } from "lucide-react";
 import Topbar from "../components/Topbar";
 import Badge from "../components/Badge";
-import { litiges } from "../data/mockData";
+import { litiges } from "../data/Mockdata.js";
 
 export default function Disputes() {
   const ouverts = litiges.filter((l) => l.statut !== "Résolu").length;

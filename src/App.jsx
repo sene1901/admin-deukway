@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Sidebar from "./components/Sidebar";
-import Register from "./pages/Register";
+import register from "./pages/register";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
@@ -26,7 +26,7 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-        <Route path="/inscription" element={<Register />} />
+        <Route path="/inscription" element={<register/>} />
           <Route path="/connexion" element={<Login />} />
           
           <Route path="/mot-de-passe-oublie" element={<ForgotPassword />} />

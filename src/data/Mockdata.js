@@ -3,7 +3,7 @@
 export const kpis = {
   utilisateurs: { valeur: 4821, evolution: 8.4 },
   annonces: { valeur: 1236, evolution: 12.1 },
-  revenus: { valeur: 18450000, evolution: 5.7 }, // FCFA
+  revenus: { valeur: 18450000, evolution: 5.7 },  
   visites: { valeur: 962, evolution: -3.2 },
 };
 

@@ -4,30 +4,20 @@
   --font-display: "Fraunces", serif;
   --font-sans: "Plus Jakarta Sans", sans-serif;
 
-  --color-ink: #0F2419;
-  --color-ink-soft: #1f2530;
-  --color-sand: #f5f8fb;
-  --color-sand-dim: #eaf0f6;
-  --color-parchment: #dde7f0;
-
-  /* Bleu principal (issu du pin/toit de l'icône) */
-  --color-terracotta: #2563eb;
-  --color-terracotta-dim: #1d4ed8;
-  --color-terracotta-glow: rgba(37, 99, 235, 0.14);
-
-  /* Bleu marine secondaire (clé de voûte, textes forts) */
-  --color-clay: #1e3a8a;
-
-  /* Ambre (statuts "en attente / paiement") */
-  --color-gold: #f59e0b;
-
-  /* Vert (issu de la clé/vague de l'icône) */
-  --color-teal: #16a34a;
-  --color-teal-glow: rgba(22, 163, 74, 0.14);
-
-  /* Rouge (litiges/erreurs) */
-  --color-crimson: #dc2626;
-  --color-crimson-glow: rgba(220, 38, 38, 0.14);
+  --color-ink: #0F2419;;
+  --color-ink-soft: #17291f;
+  --color-sand: #f6f8f6;
+  --color-sand-dim: #edf2ee;
+  --color-parchment: #dfe7e1;
+  --color-vert: #22a06b;
+  --color-vert-dim: #1b8558;
+  --color-vert-glow: rgba(34, 160, 107, 0.14);
+  --color-clay: #3d6b64;
+  --color-gold: #d69a3a;
+  --color-teal: #2a7d6f;
+  --color-teal-glow: rgba(42, 125, 111, 0.14);
+  --color-crimson: #d5453f;
+  --color-crimson-glow: rgba(213, 69, 63, 0.12);
 }
 
 body {
@@ -39,7 +29,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-terracotta);
+  background: var(--color-vert);
   color: var(--color-sand);
 }
 
@@ -51,11 +41,11 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c3d3e0;
+  background: #cdd9d1;
   border-radius: 99px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #a9c0d3;
+  background: #b9c9be;
 }
 
 .font-display {

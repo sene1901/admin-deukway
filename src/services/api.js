@@ -1,6 +1,6 @@
 // src/services/api.js
 export const API_URL =
-  import.meta.env.VITE_API_URL || "https://backend-deukway.onrender.com/";
+  import.meta.env.VITE_API_URL || "https://backend-deukway.onrender.com";
 
 // Adapte la clé si ton AuthContext stocke le token sous un autre nom
 const getToken = () => localStorage.getItem("token");

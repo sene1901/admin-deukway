@@ -47,6 +47,7 @@ export const authApi = {
     request("/auth/login", { method: "POST", body: payload, redirectOn401: false }),
   register: (payload) =>
     request("/auth/register", { method: "POST", body: payload, redirectOn401: false }),
+  registerAdmin: (body) => request("/auth/register-admin", { method: "POST", body }),
   profile: () => request("/auth/profile"),
 };
 

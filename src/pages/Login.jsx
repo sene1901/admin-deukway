@@ -155,7 +155,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={chargement}
-              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-terracotta text-sand text-sm font-semibold hover:bg-terracotta-dim transition-colors disabled:opacity-70"
+              className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-dark text-sand text-sm font-semibold hover:bg-terracotta-dim transition-colors disabled:opacity-70"
             >
               {chargement && <Loader2 size={16} className="animate-spin" />}
               {chargement ? "Connexion en cours…" : "Se connecter"}

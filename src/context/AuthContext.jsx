@@ -6,12 +6,13 @@ const AuthContext = createContext(null);
 // Champs du LoginDto : { login, password }  (login = email ou téléphone)
 const LOGIN_FIELDS = { identifier: "login", password: "password" };
 
-// ⚠️ Champs du RegisterDto : à vérifier dans Swagger (Schemas > RegisterDto)
-const REGISTER_FIELDS = {
+ const REGISTER_FIELDS = {
+  firstName: "firstName",
+  lastName: "lastName",
+  phone: "phone",
   email: "email",
   password: "password",
-  name: "nom",
-  phone: "telephone",
+  adminCode: "adminCode",
 };
 
 // Anciennes clés du mode démo (nettoyage)
@@ -42,7 +43,9 @@ function extraireSession(res) {
 }
 
 function normaliserUser(u) {
-  const nom = u?.nom ?? u?.name ?? u?.email ?? "Admin";
+   const nom =
+    [u?.firstName, u?.lastName].filter(Boolean).join(" ") ||
+    u?.nom || u?.name || u?.email || "Admin"
   return {
     ...u,
     nom,
@@ -110,21 +113,26 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function register({ nom, email, telephone, motDePasse }) {
-    const res = await authApi.register({
-      [REGISTER_FIELDS.name]: nom.trim(),
-      [REGISTER_FIELDS.email]: email.trim().toLowerCase(),
-      [REGISTER_FIELDS.phone]: telephone.trim(),
-      [REGISTER_FIELDS.password]: motDePasse,
-    });
 
-    const { token, user: userBrut } = extraireSession(res);
 
-    // Si l'API ne renvoie pas de token à l'inscription, on se connecte juste après
-    if (!token) return login(email, motDePasse);
+async function register({ nom, email, telephone, motDePasse, codeAdmin }) {
+  const parts = nom.trim().split(/\s+/);
+  const firstName = parts[0];
+  const lastName = parts.slice(1).join(" ");
+  if (!lastName) throw new Error("Entrez votre prénom et votre nom.");
 
-    return ouvrirSession(token, userBrut ?? { nom, email, telephone });
-  }
+  await authApi.registerAdmin({
+    [REGISTER_FIELDS.firstName]: firstName,
+    [REGISTER_FIELDS.lastName]: lastName,
+    [REGISTER_FIELDS.phone]: telephone.trim(),
+    [REGISTER_FIELDS.email]: email.trim().toLowerCase(),
+    [REGISTER_FIELDS.password]: motDePasse,
+    [REGISTER_FIELDS.adminCode]: codeAdmin,
+  });
+
+  // Le backend ne renvoie pas de token à l'inscription : on se connecte juste après
+  return login(email, motDePasse);
+}
 
   // ---- Mot de passe oublié : pas d'endpoint dans l'API pour l'instant (reste en démo) ----
   async function requestPasswordReset(email) {
